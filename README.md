@@ -29,20 +29,24 @@ Subscribe to a webservice in localhost:8080 with Subscribe button.
 
 Send a POST request to: http://localhost:8080/api/content/send
 
-example:
-    with curl:
 
-    ```curl --header "Content-Type: application/json" \
-      --request POST \
-      --data '{"content": "abrakadabra","timestamp": "2018-10-09 00:12:12+0100"}' \
-      http://localhost:8080/api/content/send```
+with curl:
 
-    with Postman send POST request, json type, body content:
+```
+curl --header "Content-Type: application/json" \
+--request POST \
+--data '{"content": "abrakadabra","timestamp": "2018-10-09 00:12:12+0100"}' \
+http://localhost:8080/api/content/send
+```
 
-    ```{
-    "content": "abrakadabra",
-    "timestamp": "2018-10-09 00:12:12+0100"
-    }```
+with Postman send POST request, json type, body content:
+
+```
+{
+"content": "abrakadabra",
+"timestamp": "2018-10-09 00:12:12+0100"
+}
+```
 
 You will see the new content on the subscribed user's webpage.
 
