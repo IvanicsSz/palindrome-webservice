@@ -10,9 +10,9 @@ services:
     image: 'postgres:9.6'
     environment:
       - 'POSTGRES_DB=palindrome'
-      - 'POSTGRES_USER=postgres'
-      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=assignment'
+      - 'POSTGRES_PASSWORD=abc123'
     volumes:
       - './database:/docker-entrypoint-initdb.d'
     ports:
-      - '5432:5432/tcp'
+      - '5432:5443/tcp'
