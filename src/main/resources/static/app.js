@@ -32,10 +32,6 @@ function disconnect() {
     console.log("Unsubscribed");
 }
 
-function sendName() {
-    stompClient.send("/app/content", {}, JSON.stringify({'content': $("#content").val()}));
-}
-
 function showGreeting(message) {
     $("#messages").append("<tr><td>" + message.timestamp  + ": "+  message.content + "</td></tr>" + "<tr><td>");
 }

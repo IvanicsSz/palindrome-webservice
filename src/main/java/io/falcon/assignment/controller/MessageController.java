@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +19,16 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class MessageController {
 
+    private static final String SOCKET_PATH = "/topic/message";
     @Autowired
     private PalindromeRepository palindromeRepository;
 
     @Autowired
     @Qualifier("palindrome")
     private PalindromeService palindromeService;
+
+    @Autowired
+    private SimpMessagingTemplate template;
 
 
     @RequestMapping(value = "/contents", method = RequestMethod.GET, produces = "application/json")
@@ -37,6 +42,9 @@ public class MessageController {
 
         palindrome.setPalindromeSize(palindromeService.getLongestPalindrome(palindrome.getUserContent()));
         palindromeRepository.save(palindrome);
+
+        this.template.convertAndSend(SOCKET_PATH, palindrome);
+
         return RestResponseDTO.buildSuccess();
     }
 
