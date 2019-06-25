@@ -3,7 +3,9 @@ package io.falcon.assignment.controller;
 import io.falcon.assignment.model.Palindrome;
 import io.falcon.assignment.model.dto.RestResponseDTO;
 import io.falcon.assignment.repository.PalindromeRepository;
+import io.falcon.assignment.service.PalindromeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -19,6 +21,10 @@ public class MessageController {
     @Autowired
     private PalindromeRepository palindromeRepository;
 
+    @Autowired
+    @Qualifier("palindrome")
+    private PalindromeService palindromeService;
+
 
     @RequestMapping(value = "/contents", method = RequestMethod.GET, produces = "application/json")
     public List<Palindrome> getAllMessages() {
@@ -29,6 +35,7 @@ public class MessageController {
     @RequestMapping(value = "/content/send", method = RequestMethod.POST, produces = "application/json")
     public RestResponseDTO sendMessage(@Valid @RequestBody Palindrome palindrome) {
 
+        palindrome.setPalindromeSize(palindromeService.getLongestPalindrome(palindrome.getUserContent()));
         palindromeRepository.save(palindrome);
         return RestResponseDTO.buildSuccess();
     }

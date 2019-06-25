@@ -1,7 +1,16 @@
 --
 -- Database schema
 --
-CREATE TABLE test (
-    id bigint,
-    text character varying(100)
+CREATE DATABASE palindrome;
+CREATE USER postgres WITH PASSWORD 'postgres';
+GRANT ALL PRIVILEGES ON DATABASE palindrome TO postgres;
+\connect postgres
+CREATE TABLE palindrome
+(
+  id                VARCHAR(40) PRIMARY KEY NOT NULL,
+  user_content      VARCHAR(255),
+  time_stamp        TIMESTAMP,
+  palindrome_size   INT
 );
+ALTER TABLE palindrome
+    OWNER to postgres;
