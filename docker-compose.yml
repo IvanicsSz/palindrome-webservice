@@ -6,11 +6,12 @@ services:
     ports:
       - '8080:8080/tcp'
   database:
+    container_name: pgdb
     image: 'postgres:9.6'
     environment:
-      - 'POSTGRES_DB=assignment'
-      - 'POSTGRES_USER=assignment'
-      - 'POSTGRES_PASSWORD=abc123'
+      - 'POSTGRES_DB=palindrome'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
     volumes:
       - './database:/docker-entrypoint-initdb.d'
     ports:

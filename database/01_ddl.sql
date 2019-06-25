@@ -4,7 +4,7 @@
 CREATE DATABASE palindrome;
 CREATE USER postgres WITH PASSWORD 'postgres';
 GRANT ALL PRIVILEGES ON DATABASE palindrome TO postgres;
-\connect postgres
+
 CREATE TABLE palindrome
 (
   id                VARCHAR(40) PRIMARY KEY NOT NULL,
