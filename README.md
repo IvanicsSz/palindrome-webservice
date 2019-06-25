@@ -11,10 +11,16 @@ Requests are persisted in database.
 
 ## Installation
 
--Docker
+Clone the repo.
 
-```bash
-pip install foobar
+To build the project, use the provided Maven script:
+```
+mvnw clean package
+```
+
+To run the project in Docker run:
+```
+docker-compose up
 ```
 
 ## Usage
@@ -42,5 +48,10 @@ You will see the new content on the subscribed user's webpage.
 
 Send GET request to http://localhost:8080/api/contents endpoint,
 to get all database entries with the longest palindrome value on it.
+
+
+## DB structure
+
+[Requirements](Requirements.md)
 
 

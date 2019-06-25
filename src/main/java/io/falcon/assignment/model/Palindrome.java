@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -13,13 +12,14 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+
 @Data
 @Entity
 @Table(name = "palindrome")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@EqualsAndHashCode(of = "id")
 @ToString
 public class Palindrome {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
