@@ -10,6 +10,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -29,6 +30,7 @@ public class Palindrome {
     @JsonProperty("content")
     private String userContent;
 
+    @NotNull(message = "Please provide a timestamp")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ssZ")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonProperty("timestamp")
