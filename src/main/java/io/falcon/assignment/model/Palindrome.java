@@ -39,4 +39,11 @@ public class Palindrome {
     @JsonProperty("longest_palindrome_size")
     private Integer palindromeSize;
 
+    public Palindrome(){};
+
+    public Palindrome(String userContent, Date timeStamp){
+        this.userContent = userContent;
+        this.timeStamp = timeStamp;
+    }
+
 }
