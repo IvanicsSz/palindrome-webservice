@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * PalindromeService implementation of O(n^2) time and O(1) space method
  * to find the longest palindromic substring. Starts searching in the middle of the string
  */
-@Service("palindrome")
+@Service("palindromeMiddleSearch")
 @Slf4j
 public class PalindromeServiceMiddleSearch implements PalindromeService {
 

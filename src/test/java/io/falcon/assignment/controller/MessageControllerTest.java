@@ -64,7 +64,7 @@ public class MessageControllerTest {
     }
 
     @Test
-    public void getAllMessages() throws Exception{
+    public void getAllMessages() throws Exception {
         String uri = "/api/contents";
 
         when(palindromeRepository.findAll()).thenReturn(mockPalindromes);
@@ -91,7 +91,7 @@ public class MessageControllerTest {
         verify(palindromeService, times(1)).getLongestPalindrome(mockPalindrome.getUserContent());
         verifyNoMoreInteractions(palindromeService);
 
-        assertEquals(mockRestResponseDTO,result);
+        assertEquals(mockRestResponseDTO, result);
     }
 
 }

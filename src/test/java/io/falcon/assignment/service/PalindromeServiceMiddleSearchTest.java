@@ -6,11 +6,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.*;
-
 public class PalindromeServiceMiddleSearchTest {
 
     @InjectMocks

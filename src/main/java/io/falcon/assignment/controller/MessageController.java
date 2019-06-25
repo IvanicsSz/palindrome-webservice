@@ -24,7 +24,7 @@ public class MessageController {
     private PalindromeRepository palindromeRepository;
 
     @Autowired
-    @Qualifier("palindrome")
+    @Qualifier("palindromeMiddleSearch")
     private PalindromeService palindromeService;
 
     @Autowired

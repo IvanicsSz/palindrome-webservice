@@ -50,8 +50,8 @@ Send GET request to http://localhost:8080/api/contents endpoint,
 to get all database entries with the longest palindrome value on it.
 
 
-## DB structure
+## Database structure
 
-[Requirements](Requirements.md)
+[Database structure](Requirements.md)
 
 
